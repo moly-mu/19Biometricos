@@ -1,6 +1,7 @@
 import { useState, useEffect, useRef } from "react";
 import { useNavigate } from "react-router-dom"; 
 import axios from "axios";
+import "./FaceComponentEnter.css";
 
 const FaceRecognitionEnter = () => {
   const [message, setMessage] = useState(""); // Mensaje del backend

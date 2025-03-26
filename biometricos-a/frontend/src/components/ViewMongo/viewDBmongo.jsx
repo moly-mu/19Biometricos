@@ -1,7 +1,6 @@
 import { useState } from "react";
 import axios from "axios";
 import './viewDBmongo.css'
-import Footer from "../footer/Footer";
 
 const ReporteAsistencia = () => {
     const [registros, setRegistros] = useState([]);
@@ -92,7 +91,6 @@ const ReporteAsistencia = () => {
                 </div>
             )}
         </main>
-        <Footer />
     </div>
 );
 };

@@ -24,8 +24,9 @@ html, body {
       display: flex;
       flex-direction: column;
       align-items: center;
-      padding-top: 20px;
+      padding-top: 60px;
       animation: fadeUp 1s ease-out;
+      margin-bottom: 14%;
   }
   
   /* Título del QR */

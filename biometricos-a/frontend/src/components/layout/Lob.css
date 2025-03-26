@@ -11,4 +11,12 @@
     position: absolute;
     top: 50px;
     left: 83px;
+    padding: 20px; /* Espaciado dentro del logo-box */
+  }
+  
+  /* Sombra a la imagen dentro del logo-box */
+  .logo-box img {
+    filter: drop-shadow(0 4px 8px #00102D); /* Sombra en la imagen */
+    max-width: 100%; /* Aseguramos que la imagen se ajuste al tamaño del contenedor */
+    height: auto;
   }

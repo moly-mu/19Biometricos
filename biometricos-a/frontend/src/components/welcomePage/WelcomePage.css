@@ -11,7 +11,7 @@
     min-height: 100vh;
     justify-content: space-between;
     background-color: #f8f9fa;
-    color: #333333;
+    color: #00102D;
     font-family: 'Inter', sans-serif;
     transition: background 0.3s, color 0.3s;
 }
@@ -26,46 +26,36 @@
 }
 
 .title {
-    font-size: 2.5rem;
+    font-size: 1.5rem;
     line-height: 1.2;
-    font-weight: bold;
-    margin-bottom: 10px;
-    margin-top: -200px;
-    color: #333333;
+    font-weight: normal;
+    margin-bottom: 2%;
+    margin-top: 0;
+    color: #00102D;
     transition: color 0.3s ease-in-out;
 }
 
 h1 {
-    font-size: 4rem;
+    font-size: 3rem;
     font-weight: bold;
     line-height: 1.2;
     margin-top: 190px;
-    margin-bottom: 9%;
-}
-
-.face-recognition-container-w {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 30%;
-    margin-left: auto;
+    margin-bottom: 2%;
 }
 
 .text-animation {
-    opacity: 0; /* Comienza invisible */
-    transform: translateY(20px); /* Comienza abajo */
-    filter: blur(5px); /* Comienza borroso */
-    transition: opacity 0.8s ease, transform 0.8s ease, filter 0.8s ease; /* Transiciones suaves */
+    opacity: 0; 
+    transform: translateY(20px); 
+    filter: blur(5px); 
+    transition: opacity 0.8s ease, transform 0.8s ease, filter 0.8s ease; 
   }
   
-  /* Clase cuando el texto se vuelve visible */
   .text-animation.visible {
-    opacity: 1; /* Totalmente visible */
-    transform: translateY(0); /* Se mueve a su lugar */
-    filter: blur(0); /* Elimina el desenfoque */
+    opacity: 1; 
+    transform: translateY(0); 
+    filter: blur(0); 
   }
   
-  /* Animación para los títulos */
   .title, h1 {
     animation: fadeInFromBottom 1s ease-out forwards;
   }
@@ -82,6 +72,59 @@ h1 {
       filter: blur(0);
     }
   }
+
+  .camara-button {
+    margin: 20px 0;
+    padding: 8px 15px; 
+    background-color: #00102D;
+    color: white;
+    border: none;
+    align-items: center;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 0.9rem; 
+    max-width: 200px; 
+    text-align: left; 
+  }
+  
+  .camara-button:hover {
+    background-color: #071f4d;
+  }
+  
+  .spline-scene {
+    position: relative;
+    justify-content: center;
+    width: 120%;
+    height: auto;
+    clip-path: inset(0% 25% 0% 25%);
+    transition: opacity 0.5s ease-in-out;
+    left: 50%;
+    transform: translate(-50%, -20%); 
+  }
+  
+  .spline-container {
+    transition: all 0.5s ease;
+  }
+  
+  .spline-container.camera-active .spline-scene {
+    width: 20%;
+    max-width: 850px;
+    height: auto;
+    clip-path: inset(0% 19% 0% 0%);
+    transition: opacity 0.5s ease-in-out; 
+    left: 55%;
+    transform: translate(-50%, -20%);
+  }
+
+  .face-recognition-container-w {
+    display: flex; 
+    justify-content: center;
+    align-items: center;
+    width: 30%;
+    transform: translate(50%, -180%);
+    margin-bottom: -40%;
+    margin-left: auto;
+}
 
 
 .footer {

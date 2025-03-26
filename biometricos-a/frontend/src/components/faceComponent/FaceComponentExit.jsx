@@ -1,5 +1,6 @@
 import { useState, useEffect, useRef } from "react";
 import axios from "axios";
+import "./FaceComponentEnter.css";
 
 const FaceRecognitionExit = () => {
   const [message, setMessage] = useState(""); // Mensaje del backend
