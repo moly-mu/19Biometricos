@@ -24,17 +24,17 @@ html, body {
       display: flex;
       flex-direction: column;
       align-items: center;
-      padding-top: 60px;
+      padding-top: 20px;
       animation: fadeUp 1s ease-out;
       margin-bottom: 14%;
   }
   
   /* Título del QR */
   .qr-title {
-      color: #002366;
-      font-size: 3rem;
+      color: #00102D;
+      font-size: 3.5rem;
       margin-top: 7%;
-      margin-bottom: 3%;
+      margin-bottom: 2%;
       opacity: 0;
       animation: fadeUp 1s ease-out forwards;
   }

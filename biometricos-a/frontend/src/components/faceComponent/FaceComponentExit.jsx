@@ -85,7 +85,6 @@ const FaceRecognitionExit = () => {
 
   return (
     <div className = "container-face-c">
-      <h1 className = "title-face-c">Reconocimiento Facial</h1>
       {isCameraActive ? (
         <div className = "container-video-face">
           <video

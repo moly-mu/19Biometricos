@@ -10,9 +10,9 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 100vh;
+    height: 90vh;
     background: #f8f9fa;
-    padding-top: 20px;
+    padding-top: 0;
     margin-bottom: 50px;
     font-family: 'Inter', sans-serif;
 }
@@ -150,7 +150,7 @@ input {
   
 .btn-register-s:hover {
     border: 1px solid #002366;
-    background: #002366;
+    background: #0c3fa0;
     color: #fff
 }
 

@@ -1,61 +1,60 @@
 import { useState, useEffect, useRef } from 'react'; 
-import './WelcomePage.css'
+import './WelcomePage.css';
 import FaceRecognitionEnter from '../faceComponent/FaceComponentEnter';
 import Spline from '@splinetool/react-spline';
-import gsap from "gsap";
+import gsap from 'gsap'; // Importar GSAP
 
 const WelcomePage = () => {
-  const [isVisible, setIsVisible] = useState(false);
-  const [cameraActive, setCameraActive] = useState(false);
-  const splineRef = useRef(null);
-  const cameraRef = useRef(null);
+  const [isVisible, setIsVisible] = useState(false);  // Estado para la animación de texto
+  const splineRef = useRef(null); // Referencia para el contenedor de Spline
+  const cameraRef = useRef(null); // Referencia para la cámara o componente relacionado
 
+  // Activar la animación cuando el componente se monte
   useEffect(() => {
     const timer = setTimeout(() => {
-      setIsVisible(true);
+      setIsVisible(true);  // Después de un pequeño retraso, activamos la animación de texto
     }, 200);
-    return () => clearTimeout(timer);
+
+    // Animación con GSAP
+    setTimeout(() => {
+      // Desvanecer la escena de Spline
+      gsap.to(splineRef.current, {
+        opacity: 0, 
+        duration: 3, 
+        ease: "power2.inOut"
+      });
+
+      // Después de 10 segundos, mostrar la cámara
+      setTimeout(() => {
+        gsap.to(cameraRef.current, {
+          opacity: 1,
+          duration: 3,
+          ease: "power2.inOut"
+        });
+      }, 0); // Aparece la cámara 1 segundo después del desvanecimiento de Spline
+
+    }, 1500); // Iniciar la animación después de 10 segundos
+
+    return () => clearTimeout(timer);  // Limpiar el temporizador si se desmonta el componente
   }, []);
 
-  useEffect(() => {
-    if (cameraActive && splineRef.current && cameraRef.current) {
-      gsap.fromTo(splineRef.current, 
-        { scale: 1, x: 0, y: 0 }, 
-        { scale: 0.5, x: -780, y: 0, duration: 2, ease: "power3.inOut" }
-      );
-
-      gsap.fromTo(cameraRef.current, 
-        { scale: 0.5, x: -10000, y: 0 }, 
-        { scale: 1, x: 0, y: 0, duration: 2, ease: "power3.inOut" }
-      );
-    }
-  }, [cameraActive]);
-
-  const activateCamera = () => {
-    setCameraActive(true);
-  }
-
   return (
-    <div className={`app-container-welcome-w ${cameraActive ? 'camera-active' : ''}`}> 
-      <main className="main-content-w">
-        <h1 className={`text-animation ${isVisible ? 'visible' : ''}`}>IUDC Sistema de Control <br></br>de Acceso Entrada</h1>
-        <h2 className={`title text-animation ${isVisible ? 'visible' : ''}`}>Reconocimiento Facial</h2>
-
-        <button onClick={activateCamera} className="camara-button">
-          Activar Cámara
-        </button>
-
-        <div className={`spline-container ${cameraActive ? 'camera-active' : ''}`}>
-          <Spline
-            scene="https://prod.spline.design/CcH-Q2b6rx5yB0n3/scene.splinecode"
-            className="spline-scene"
-            ref={splineRef}
-          />
-        </div>
+    <div className="app-container-welcome">
+      <h1 className={`text-animation ${isVisible ? 'visible' : ''}`}>IUDC Sistema de Control <br />de Acceso Entrada</h1>
       
-        <div className="face-recognition-container-w" ref={cameraRef}>
+      <main className="main-content">
+        
+        <div className="face-recognition-container" ref={cameraRef} style={{ opacity: 0 }}>
           <FaceRecognitionEnter mode="Entrada" />
         </div>
+
+        <div className="spline-container" ref={splineRef}>
+          <Spline 
+            scene="https://prod.spline.design/3GLCbYSz1S9IzbLc/scene.splinecode" className="spline-scene" 
+          />
+        </div>
+        
+        <h2 className={`title text-animation ${isVisible ? 'visible' : ''}`}>Reconocimiento Facial</h2>
       </main>
     </div>
   );

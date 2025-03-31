@@ -13,18 +13,10 @@
   /* Contenedor principal */
   .container-face-c {
     display: flex;
+    margin-top: 17%;
     flex-direction: column;
     align-items: center;
     animation: fadeUp 1s ease-out; /* Aplicamos la animación */
-  }
-  
-  /* Título */
-  .title-face-c {
-    margin-bottom: 10px;
-    color: black;
-    font-family: 'SunsetTime';
-    opacity: 0; /* Comienza invisible */
-    animation: fadeUp 1s ease-out forwards; /* Aparece con animación */
   }
   
   /* Contenedor del video */

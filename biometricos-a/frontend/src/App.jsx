@@ -12,6 +12,7 @@ import QRWelcome from "./components/cameraComponent/CameraComponentEnter";
 import QRFinal from "./components/cameraComponent/CameraComponentExit";
 import Subjects from "./components/subjectComponent/SubjectComponent";
 import ReporteAsistencia from "./components/ViewMongo/viewDBmongo";
+import FormComponent from "./components/formComponent/FormComponent";
 
 
 const App = () => {
@@ -29,6 +30,7 @@ const App = () => {
         <Route path="/AnalisisDatos" element={<Analyst/>}/>
         <Route path="/EntradaQR" element={<QRWelcome/>}/>
         <Route path="/SalidaQR" element={<QRFinal/>}/>
+        <Route path="/RegistrarQR" element={<FormComponent />} />
         <Route path="/Subjects" element={<Subjects/>}/>
         <Route path="/ViewDB" element={<ReporteAsistencia />}/>
 

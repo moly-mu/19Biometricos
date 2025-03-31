@@ -1,12 +1,9 @@
-
 import FaceRecognitionExit from "../faceComponent/FaceComponentExit";
 import './FinalPage.css'
 
 const FinalPage = () => {
 
   return (
-
-
     <div className='app-container-final'>
       <div className="title-fn">
         <h1>Sistema de control de acceso Salida</h1>
