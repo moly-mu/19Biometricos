@@ -54,67 +54,77 @@ const RegistrarRostro = () => {
   return (
     <div className="container-s">
       <div className="form-card-s">
-      <h2 className="title-s">Registrar Rostro</h2>
+        <h2 className="title-s">Registrar Rostro</h2>
         <form onSubmit={handleSubmit} className="form-layout-s">
-        <div className="input-section-s">
-          <div className="input-group-s">
-            <label htmlFor="nombre">Nombre:</label>
-            <input
-              type="text"
-              id="nombre"
-              value={nombre}
-              onChange={(e) => setNombre(e.target.value)}
-              required
-            />
-          </div>
-          <div className="input-group-s">
-            <label htmlFor="cedula">Cédula:</label>
-            <input
-              type="text"
-              id="cedula"
-              value={cedula}
-              onChange={(e) => setCedula(e.target.value)}
-              required
-            />
-             </div>
-          <div className="input-group-s">
-            <label htmlFor="whatsapp">Numero de telefono:</label>
-            <input
-              type="text"
-              id="whatsapp"
-              value={whatsapp}
-              onChange={(e)=> setWhatsapp(e.target.value)}
-              required
-            />
-          </div>
-    
-            </div>
-            <div className="image-upload-s">
-                <label htmlFor="imagen">Imagen de rostro:</label>
-                <div className="upload-box-s" onClick={() => document.getElementById('imagen').click()}>
-                <img src="/imgs/subir-imagen (1).png"  alt="Hoja" className="upload-icon-s" />
-                  <p className="upload-text-s">Imagen de 2MB.</p>
-                  <button className="upload-button-s">Subir</button>
-                </div>
+          
+          {/* Contenedor principal en dos columnas */}
+          <div className="form-grid-s">
+            
+            {/* Sección de inputs */}
+            <div className="input-section-s">
+              <div className="input-group-s">
+                <label htmlFor="nombre">Nombre:</label>
                 <input
-                  type="file"
-                  id="imagen"
-                  accept="image/*"
-                  onChange={handleImageChange}
+                  type="text"
+                  id="nombre"
+                  value={nombre}
+                  onChange={(e) => setNombre(e.target.value)}
                   required
-                  hidden
                 />
               </div>
-
+              <div className="input-group-s">
+                <label htmlFor="cedula">Cédula:</label>
+                <input
+                  type="text"
+                  id="cedula"
+                  value={cedula}
+                  onChange={(e) => setCedula(e.target.value)}
+                  required
+                />
+              </div>
+              <div className="input-group-s">
+                <label htmlFor="whatsapp">Número de teléfono:</label>
+                <input
+                  type="text"
+                  id="whatsapp"
+                  value={whatsapp}
+                  onChange={(e) => setWhatsapp(e.target.value)}
+                  required
+                />
+              </div>
+            </div>
+  
+            {/* Sección de carga de imagen */}
+            <div className="image-upload-s">
+              <label htmlFor="imagen">Imagen de rostro:</label>
+              <div className="upload-box-s" onClick={() => document.getElementById('imagen').click()}>
+                <img src="/imgs/subir-imagen (1).png" alt="Hoja" className="upload-icon-s" />
+                <p className="upload-text-s">Imagen de 2MB.</p>
+                <button className="upload-button-s" type="button">Subir</button>
+              </div>
+              <input
+                type="file"
+                id="imagen"
+                accept="image/*"
+                onChange={handleImageChange}
+                required
+                hidden
+              />
+            </div>
+  
+          </div>
+  
+          {/* Sección de botones abajo */}
+          <div className="buttons-container-s">
+            <button type="button" className="btn btn-b-s" onClick={() => navigate("/")}>Atrás</button>
+            <button type="submit" className="btn btn-register-s">Registrar</button>
+          </div>
+  
         </form>
-        <div className="buttons-s">
-          <button className="btn btn-b-s" onClick={() => navigate("/")}>Atrás</button>
-          <button type="submit" className="btn btn-register-s">Registrar</button>
-        </div>
         {mensaje && <p className="message">{mensaje}</p>}
       </div>
     </div>
-  );
-};
+  );  
+} 
 
 export default RegistrarRostro;
