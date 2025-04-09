@@ -6,7 +6,8 @@
   "scripts": {
     "dev": "vite",
     "lint": "eslint .",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "build":"vite build"
   },
   "dependencies": {
     "@splinetool/react-spline": "^4.0.0",

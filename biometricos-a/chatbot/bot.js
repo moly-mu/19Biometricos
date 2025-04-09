@@ -1,18 +1,31 @@
 const express = require('express');
-const { Client } = require('whatsapp-web.js');
 const qrcode = require('qrcode-terminal');
+const { Client, LocalAuth } = require('whatsapp-web.js');
 
 const app = express();
 app.use(express.json());
 
-const client = new Client();
+const client = new Client({
+    puppeteer: {
+        executablePath: process.env.PUPPETEER_EXECUTABLE_PATH || undefined,
+        args: ['--no-sandbox'],
+        headless: true,
+    },
+    authStrategy: new LocalAuth({
+        dataPath: './session' // Guarda los datos aquí
+    })
+});
 
 client.on('qr', (qr) => {
-    qrcode.generate(qr, { small: true }); // Muestra el código QR en la terminal
+    qrcode.generate(qr, { small: true });
 });
 
 client.on('ready', () => {
-    console.log('Cliente de WhatsApp listo!');
+    console.log('✅ Cliente de WhatsApp listo!');
+});
+
+client.on('auth_failure', msg => {
+    console.error('❌ Falló la autenticación:', msg);
 });
 
 app.post('/enviar-mensaje', async (req, res) => {

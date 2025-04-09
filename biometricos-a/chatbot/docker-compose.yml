@@ -1,0 +1,13 @@
+
+services:
+  whatsapp-bot:
+    container_name: whatsapp-bot
+    build: .
+    ports:
+      - "3000:3000"
+    volumes:
+      - ./session:/app/session  # Persistencia de sesión de WhatsApp
+    environment:
+      - PUPPETEER_EXECUTABLE_PATH=/usr/bin/chromium-browser
+    stdin_open: true  # Permite ver el QR en consola
+    tty: true         # Modo interactivo (para QR en terminal)
