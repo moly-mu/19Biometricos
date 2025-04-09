@@ -8,8 +8,8 @@ class Usuario(models.Model):
     rostro_base64 = models.TextField(null=True, blank=True)  
     rostro_codificado = models.TextField(null=True, blank=True)
     whatsapp = models.CharField(max_length=15, null=True)
-    directivo1 = models.CharField(max_length=12,default="573106135434")
-    directivo2 = models.CharField(max_length=12,default="573134147100")  
+    directivo1 = models.CharField(max_length=12,default="573245012717")
+    directivo2 = models.CharField(max_length=12,default="573157124025")  
     numero_serie = models.CharField(max_length=100, null=True)  
 
     def __str__(self):

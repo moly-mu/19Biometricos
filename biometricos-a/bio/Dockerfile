@@ -32,3 +32,4 @@ EXPOSE 8000
 
 CMD ["sh", "-c", "python manage.py makemigrations && python manage.py migrate && gunicorn --bind 0.0.0.0:8000 backend.wsgi:application"]
 
+RUN pip install --no-cache-dir face_recognition_models
