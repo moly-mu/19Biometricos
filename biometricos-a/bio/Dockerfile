@@ -21,15 +21,15 @@ RUN apt-get update && apt-get install -y \
 WORKDIR /app
 
 # Copiar todo el código del proyecto
+COPY requirements.txt .
+RUN pip install --upgrade pip setuptools
+RUN pip install --no-cache-dir -r requirements.txt
 COPY . .
-
-RUN pip install --no-cache-dir --prefer-binary -r requirements.txt
 
 # Crear directorios para base de datos SQLite y archivos estáticos (Cambiar en un futuro por Mysql o PostgreSQL)
 RUN mkdir -p /app/db /app/static /app/media
 
 EXPOSE 8000
 
-CMD ["sh", "-c", "python manage.py makemigrations && python manage.py migrate && gunicorn --bind 0.0.0.0:8000 backend.wsgi:application"]
+CMD ["sh", "-c", "python manage.py makemigrations && python manage.py migrate && gunicorn --bind 0.0.0.0:8000 bio.wsgi:application"]
 
-RUN pip install --no-cache-dir face_recognition_models
