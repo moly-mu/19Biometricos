@@ -11,3 +11,7 @@ services:
       - PUPPETEER_EXECUTABLE_PATH=/usr/bin/chromium-browser
     stdin_open: true  # Permite ver el QR en consola
     tty: true         # Modo interactivo (para QR en terminal)
+    deploy:
+      resources:
+        limits:
+          cpus: "0.5"
