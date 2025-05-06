@@ -33,7 +33,7 @@ SECRET_KEY = 'django-insecure-w2q1z4fv1_^x8-*#s7*fkq#5dm*zjtf#eg=hl=%(a*6(#g66)0
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['.trycloudflare.com', 'localhost', '127.0.0.1']
+ALLOWED_HOSTS = ['.trycloudflare.com', 'localhost', '127.0.0.1', 'br-amendments-ultram-options.trycloudflare.com']
 
 
 # Application definition
