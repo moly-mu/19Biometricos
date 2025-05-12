@@ -12,7 +12,7 @@ services:
       - sqlite_data:/app/db
       - static_volume:/app/static
       - media_volume:/app/media
-    restart: unless-stopped
+    restart: always
 
 volumes:
 
